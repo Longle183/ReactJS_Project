@@ -1,0 +1,117 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 12px;
+}
+
+
+/* Toàn bộ khung ngoài để căn giữa form */
+.register-page {
+  display: flex;
+  justify-content: center; /* Căn giữa ngang */
+  align-items: center;     /* Căn giữa dọc */
+  height: 100vh;           /* Chiếm toàn chiều cao màn hình */
+  background-color: #f5f7fa; /* Màu nền nhẹ nhàng */
+}
+
+/* Hộp chứa form đăng ký */
+.custom-container {
+  width: 400px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.custom-container h1 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 30px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+
+.name-fields {
+  display: flex;
+  gap: 6px;
+}
+
+.name-fields input {
+  flex: 1;
+}
+
+input {
+  width: 100% !important;
+  padding: 6px;
+  margin: 3px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3px;
+  font-size: 11px;
+  margin: 6px 0;
+  white-space: nowrap;
+  width: 70%;
+}
+
+.checkbox-container input {
+  margin-left: 0;
+}
+
+button {
+  width: 100% !important;
+  padding: 6px;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button:disabled {
+  background: rgb(160, 159, 159);
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.input-group input {
+  height: 32px;
+  padding: 5px;
+  font-size: 13px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.75rem;
+  height: 14px;
+  margin-top: 2px;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+@import url("./Responsive.css");

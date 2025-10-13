@@ -1,0 +1,44 @@
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    .name-fields {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .checkbox-container {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        justify-content: flex-start;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 10px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .checkbox-container {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        justify-content: flex-start;
+    }
+} 
+@media (max-width: 767.98px) {
+    .main-menu {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px 0;
+    }
+    .main-menu a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 0.9rem;
+    }
+  }

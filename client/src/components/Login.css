@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+}
+.left-align {
+    text-align: left;
+}
+.subtitle {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 10px 0;
+    white-space: nowrap;
+}
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.forgot-password-container {
+    margin-left: auto;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:disabled {
+    background: gray;
+}
+.forgot-password {
+    color: blue;
+    text-decoration: none;
+}
+.error-message {
+    color: red;
+    font-size: 0.85rem;
+    height: 18px;
+    margin-top: 4px;
+  }
+  
+  .input-error {
+    border: 1px solid red;
+  }
+  @import url("./Responsive.css");

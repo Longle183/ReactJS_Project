@@ -1,0 +1,105 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Nguyễn Văn",
+      "last_name": "Nam",
+      "gender": 0,
+      "date_of_birth": "2023-02-20",
+      "address": "Thanh Xuân, Hà Nội",
+      "avatar": "https://example.com/avatar.jpg",
+      "email": "nvnam@gmail.com",
+      "password": "123456",
+      "phone_number": "0988787671",
+      "created_at": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": 1760055496418,
+      "lastname": "Lê Thành",
+      "firstname": "Long",
+      "email": "lethanhlong1224@gmail.com",
+      "password": "mbmbjk12"
+    }
+  ],
+  "categories": [
+    {
+      "id": "DM001",
+      "name": "Quần áo",
+      "status": "active"
+    },
+    {
+      "id": "DM002",
+      "name": "Kính mắt",
+      "status": "inactive"
+    },
+    {
+      "id": "DM003",
+      "name": "Giày dép",
+      "status": "active"
+    },
+    {
+      "id": "DM004",
+      "name": "Thời trang nam",
+      "status": "inactive"
+    },
+    {
+      "id": "DM005",
+      "name": "Thời trang nữ",
+      "status": "inactive"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "product_code": "SP001",
+      "product_name": "Táo",
+      "category_id": 1,
+      "stock": 100,
+      "price": 20000,
+      "discount": 0,
+      "image": "https://example.com/apple.jpg",
+      "status": "ACTIVE",
+      "description": "Táo nhập khẩu từ Mỹ",
+      "created_at": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "product_code": "SP002",
+      "product_name": "Cà chua",
+      "category_id": 2,
+      "stock": 100,
+      "price": 20000,
+      "discount": 0,
+      "image": "https://example.com/tomato.jpg",
+      "status": "ACTIVE",
+      "description": "Cà chua nhập khẩu từ Hà Lan",
+      "created_at": "2021-01-01T00:00:00Z"
+    }
+  ],
+   "discount": [
+    {
+      "id": 1,
+      "name": "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      "price": 1437,
+      "image": "https://i.ebayimg.com/images/g/xckAAOSwKJVlEbAB/s-l1600.webp"
+    },
+    {
+      "id": 2,
+      "name": "AirPods Max Silver",
+      "price": 549,
+      "image": "https://i.ebayimg.com/images/g/8-AAAeSwtLtoi~AA/s-l1600.webp"
+    },
+    {
+      "id": 3,
+      "name": "Apple Watch Series 9 GPS 41mm Starlight Aluminium",
+      "price": 399,
+      "image": "https://i.ebayimg.com/images/g/mfwAAOSwl3Zn5gsT/s-l1600.webp"
+    },
+    {
+      "id": 4,
+      "name": "Apple iPhone 14 Pro 1TB Gold (MQ2V3)",
+      "price": 1449,
+      "image": "https://i.ebayimg.com/images/g/GeoAAOSwKqRlPASI/s-l1600.webp"
+    }
+  ]
+}
