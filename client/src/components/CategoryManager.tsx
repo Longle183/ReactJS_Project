@@ -10,12 +10,14 @@ import {
   Form,
   Radio,
   message,
+  Dropdown,
 } from "antd";
 import {
   BellOutlined,
   EditOutlined,
   DeleteOutlined,
   PlusOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
 import "./CategoryManager.css";
@@ -57,7 +59,12 @@ const CategoryManager: React.FC = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
-
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
+    message.success("Đăng xuất thành công!");
+    window.location.href = "/login";
+  };
   const handleSave = async () => {
     try {
       const values = await form.validateFields();
@@ -183,6 +190,7 @@ const CategoryManager: React.FC = () => {
     if (value === "all") setFilteredData(categories);
     else setFilteredData(categories.filter((cat) => cat.status === value));
   };
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Cột bảng với sắp xếp
   const columns = [
@@ -266,12 +274,38 @@ const CategoryManager: React.FC = () => {
           <div />
           <div style={{ display: "flex", alignItems: "center" }}>
             <BellOutlined style={{ fontSize: 20, marginRight: 16 }} />
-            <img
-              src="/assets/images/user-avatar.png"
-              alt=""
-              width={40}
-              className="rounded-circle"
-            />
+
+            <Dropdown
+              menu={{
+                items: [
+                  {
+                    key: "logout",
+                    label: "Đăng xuất",
+                    onClick: handleLogout,
+                  },
+                ],
+              }}
+              placement="bottomRight"
+              trigger={["click"]}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  cursor: "pointer",
+                }}
+              >
+                <UserOutlined style={{ fontSize: 20 }} />
+                <img
+                  src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRDYhtt73PipmBlFYNaNlS1tqiN46R566gLQHRZl2QPWhIXdYHy_KjKCBSJp6Rg5r8lJMJ3Tm-W0aDOxdhKZTTjSIyDHp8zT2er4mQL7q1u"
+                  alt="user"
+                  width={38}
+                  height={38}
+                  style={{ borderRadius: "50%" }}
+                />
+              </div>
+            </Dropdown>
           </div>
         </Header>
 
@@ -325,7 +359,9 @@ const CategoryManager: React.FC = () => {
             dataSource={filteredData}
             rowKey="id"
             pagination={{
-              pageSize: 8, // Hiển thị 8 mục mỗi trang
+              current: currentPage,
+              onChange: (page) => setCurrentPage(page),
+              pageSize: 8,
               position: ["bottomCenter"],
               hideOnSinglePage: false,
               showLessItems: true,
@@ -412,9 +448,7 @@ const CategoryManager: React.FC = () => {
           </Form.Item>
 
           <div className="modal-footer-right">
-            <Button  onClick={handleCancelUpdate}>
-              Hủy
-            </Button>
+            <Button onClick={handleCancelUpdate}>Hủy</Button>
             <Button type="primary" onClick={handleUpdate}>
               Cập nhật
             </Button>
@@ -433,9 +467,7 @@ const CategoryManager: React.FC = () => {
       >
         <p>Bạn có chắc muốn xóa danh mục {selectedCategoryId} không?</p>
         <div className="modal-footer-right">
-          <Button onClick={handleCancelDelete}>
-            Hủy
-          </Button>
+          <Button onClick={handleCancelDelete}>Hủy</Button>
           <Button danger type="primary" onClick={handleDelete}>
             Xóa
           </Button>

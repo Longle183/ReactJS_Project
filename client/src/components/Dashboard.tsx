@@ -23,6 +23,7 @@ import logo from "../imgs/LogoBlack.png";
 import logoWhite from "../imgs/Logo.png";
 import footerBanner from "../imgs/Footer.png";
 import type { Discount, Product } from "../utils/type";
+import { Dropdown, Menu } from "antd";
 
 const { Meta } = Card;
 
@@ -33,13 +34,21 @@ export default function Home() {
     try {
       const res = await axios.get("http://localhost:8080/products");
       const resD = await axios.get("http://localhost:8080/discount");
-       console.log("Products data:", res.data); // Kiểm tra dữ liệu products
-       console.log("Discounts data:", resD.data); // Kiểm tra dữ liệu discounts
+      console.log("Products data:", res.data); // Kiểm tra dữ liệu products
+      console.log("Discounts data:", resD.data); // Kiểm tra dữ liệu discounts
       setProducts(res.data);
       setDiscounts(resD.data);
     } catch (error) {
       console.error("Lỗi khi lấy sản phẩm:", error);
     }
+  };
+
+  const handleLogout = () => {
+    // Xử lý đăng xuất ở đây, ví dụ:
+    localStorage.removeItem("token");
+    alert("Đã đăng xuất!");
+    // hoặc điều hướng về trang đăng nhập
+    window.location.href = "/login";
   };
 
   // Chỉ chạy 1 lần khi component mount
@@ -98,7 +107,19 @@ export default function Home() {
           <div className="header-container-icon">
             <HeartOutlined />
             <ShoppingCartOutlined />
-            <UserOutlined />
+            <Dropdown
+              overlay={
+                <Menu>
+                  <Menu.Item key="logout" onClick={() => handleLogout()}>
+                    Đăng xuất
+                  </Menu.Item>
+                </Menu>
+              }
+              placement="bottomRight"
+              trigger={["click"]}
+            >
+              <UserOutlined style={{ cursor: "pointer" }} />
+            </Dropdown>
           </div>
         </div>
         <br />
@@ -196,7 +217,7 @@ export default function Home() {
                 cover={
                   <div style={{ position: "relative" }}>
                     <img
-                      alt={product.name}
+                      alt={product.product_name}
                       src={product.image}
                       style={{
                         height: 200,
@@ -208,7 +229,10 @@ export default function Home() {
                   </div>
                 }
               >
-                <Meta title={product.name} description={`$${product.price}`} />
+                <Meta
+                  title={product.product_name}
+                  description={`${product.price.toLocaleString()} $`}
+                />
                 <Button
                   type="primary"
                   block
@@ -265,9 +289,7 @@ export default function Home() {
         </Row>
       </div>
 
-      <div className="body-low">
-        <img src={footerBanner} alt="" />
-      </div>
+      <div className="body-low"></div>
 
       <footer className="footer">
         <div className="footer-container">

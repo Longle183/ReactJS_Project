@@ -1,4 +1,13 @@
 {
+  "admin": [
+    {
+      "id": 1760055496418,
+      "lastname": "Lê Thành",
+      "firstname": "admin",
+      "email": "admin@gmail.com",
+      "password": "mbmbjk12"
+    }
+  ],
   "users": [
     {
       "id": 1,
@@ -14,7 +23,7 @@
       "created_at": "2021-01-01T00:00:00Z"
     },
     {
-      "id": 1760055496418,
+      "id": 1760461974119,
       "lastname": "Lê Thành",
       "firstname": "Long",
       "email": "lethanhlong1224@gmail.com",
@@ -52,12 +61,12 @@
     {
       "id": 1,
       "product_code": "SP001",
-      "product_name": "Táo",
+      "product_name": "Iphone 14 Pro Max",
       "category_id": 1,
       "stock": 100,
-      "price": 20000,
+      "price": 599,
       "discount": 0,
-      "image": "https://example.com/apple.jpg",
+      "image": "https://cdn2.cellphones.com.vn/x/media/catalog/product/t/_/t_m_18_1_3_2.png",
       "status": "ACTIVE",
       "description": "Táo nhập khẩu từ Mỹ",
       "created_at": "2021-01-01T00:00:00Z"
@@ -65,18 +74,18 @@
     {
       "id": 2,
       "product_code": "SP002",
-      "product_name": "Cà chua",
+      "product_name": "Máy ảnh",
       "category_id": 2,
       "stock": 100,
-      "price": 20000,
+      "price": 299,
       "discount": 0,
-      "image": "https://example.com/tomato.jpg",
+      "image": "https://imagedelivery.net/ZeGtsGSjuQe1P3UP_zk3fQ/b9a7da25-de82-40bc-ecc6-90473f619400/storedata",
       "status": "ACTIVE",
       "description": "Cà chua nhập khẩu từ Hà Lan",
       "created_at": "2021-01-01T00:00:00Z"
     }
   ],
-   "discount": [
+  "discount": [
     {
       "id": 1,
       "name": "Apple iPhone 14 Pro 512GB Gold (MQ233)",

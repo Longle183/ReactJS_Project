@@ -47,14 +47,13 @@
 }
 
 .banner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1c171d;
-    color: #ccc;
-    padding: 0px 160px;
-    height: 632px;
-    overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c171d;
+  color: #ccc;
+  padding: 0 160px;
+  min-height: 632px; /* dùng min-height thay height */
 }
 
 .banner-content {
@@ -98,13 +97,15 @@
 }
 
 .banner-image {
-    padding-top: 50pc;
+    padding-top: 50px; /* hoặc bỏ padding-top luôn */
     text-align: right;
 }
 
+
 .banner-image img {
-    width: 500px;
-    height: auto;
+  width: 480px;
+  height: auto;
+  margin-top: 20px;
 }
 
 .body-low {
@@ -184,4 +185,10 @@
     cursor: pointer;
 } 
 
- 
+ body, html {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+header {
+  height: auto !important;
+}

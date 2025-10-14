@@ -19,29 +19,48 @@ export default function Login() {
     }
 
     try {
-      const res = await axios.get(`http://localhost:8080/users?email=${email}`);
+      // 🔹 Kiểm tra admin trước
+      const resAdmin = await axios.get(`http://localhost:8080/admin?email=${email}`);
+      if (resAdmin.data.length > 0) {
+        const admin = resAdmin.data[0];
+        if (admin.password === password) {
+          if (remember) {
+            localStorage.setItem("admin", JSON.stringify(admin));
+          } else {
+            sessionStorage.setItem("admin", JSON.stringify(admin));
+          }
+          setError("");
+          navigate("/manager"); // 👉 chuyển đến trang quản trị
+          return;
+        } else {
+          setError("Mật khẩu admin không chính xác!");
+          return;
+        }
+      }
 
-      if (res.data.length === 0) {
+      // 🔹 Nếu không phải admin → kiểm tra user thường
+      const resUser = await axios.get(`http://localhost:8080/users?email=${email}`);
+      if (resUser.data.length === 0) {
         setError("Email chưa được đăng ký!");
         return;
       }
 
-      const user = res.data[0];
-
+      const user = resUser.data[0];
       if (user.password !== password) {
         setError("Mật khẩu không chính xác!");
         return;
       }
 
+      // 🔹 Lưu thông tin đăng nhập và chuyển hướng
       setError("");
-
       if (remember) {
         localStorage.setItem("user", JSON.stringify(user));
       } else {
         sessionStorage.setItem("user", JSON.stringify(user));
       }
 
-      navigate("/manager");
+      navigate("/dashboard"); // 👉 user thường đi tới trang Dashboard
+
     } catch (err) {
       console.error("Lỗi đăng nhập:", err);
       setError("Không thể kết nối đến server!");
@@ -88,7 +107,6 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Hiển thị lỗi nếu có */}
       {error && <p className="error-message">{error}</p>}
 
       <button id="loginBtn" onClick={handleLogin}>
