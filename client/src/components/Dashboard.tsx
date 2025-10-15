@@ -21,7 +21,7 @@ import "./Dashboard.css";
 import phoneMenu from "../imgs/phonemenu.png";
 import logo from "../imgs/LogoBlack.png";
 import logoWhite from "../imgs/Logo.png";
-import footerBanner from "../imgs/Footer.png";
+import footerBanner from "../imgs/Banner2.png";
 import type { Discount, Product } from "../utils/type";
 import { Dropdown, Menu } from "antd";
 
@@ -34,8 +34,8 @@ export default function Home() {
     try {
       const res = await axios.get("http://localhost:8080/products");
       const resD = await axios.get("http://localhost:8080/discount");
-      console.log("Products data:", res.data); // Kiểm tra dữ liệu products
-      console.log("Discounts data:", resD.data); // Kiểm tra dữ liệu discounts
+      console.log("Products data:", res.data);
+      console.log("Discounts data:", resD.data);
       setProducts(res.data);
       setDiscounts(resD.data);
     } catch (error) {
@@ -289,7 +289,9 @@ export default function Home() {
         </Row>
       </div>
 
-      <div className="body-low"></div>
+      <div className="body-low">
+        <img src={footerBanner} alt="" />
+      </div>
 
       <footer className="footer">
         <div className="footer-container">

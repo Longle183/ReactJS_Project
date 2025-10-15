@@ -19,8 +19,10 @@ export default function Login() {
     }
 
     try {
-      // 🔹 Kiểm tra admin trước
-      const resAdmin = await axios.get(`http://localhost:8080/admin?email=${email}`);
+      //  Kiểm tra admin trước
+      const resAdmin = await axios.get(
+        `http://localhost:8080/admin?email=${email}`
+      );
       if (resAdmin.data.length > 0) {
         const admin = resAdmin.data[0];
         if (admin.password === password) {
@@ -30,7 +32,7 @@ export default function Login() {
             sessionStorage.setItem("admin", JSON.stringify(admin));
           }
           setError("");
-          navigate("/manager"); // 👉 chuyển đến trang quản trị
+          navigate("/manager"); // chuyển đến trang quản trị
           return;
         } else {
           setError("Mật khẩu admin không chính xác!");
@@ -38,8 +40,10 @@ export default function Login() {
         }
       }
 
-      // 🔹 Nếu không phải admin → kiểm tra user thường
-      const resUser = await axios.get(`http://localhost:8080/users?email=${email}`);
+      //  Nếu không phải admin → kiểm tra user thường
+      const resUser = await axios.get(
+        `http://localhost:8080/users?email=${email}`
+      );
       if (resUser.data.length === 0) {
         setError("Email chưa được đăng ký!");
         return;
@@ -51,7 +55,7 @@ export default function Login() {
         return;
       }
 
-      // 🔹 Lưu thông tin đăng nhập và chuyển hướng
+      //  Lưu thông tin đăng nhập và chuyển hướng
       setError("");
       if (remember) {
         localStorage.setItem("user", JSON.stringify(user));
@@ -59,8 +63,7 @@ export default function Login() {
         sessionStorage.setItem("user", JSON.stringify(user));
       }
 
-      navigate("/dashboard"); // 👉 user thường đi tới trang Dashboard
-
+      navigate("/dashboard"); //  user thường đi tới trang Dashboard
     } catch (err) {
       console.error("Lỗi đăng nhập:", err);
       setError("Không thể kết nối đến server!");

@@ -205,7 +205,7 @@ const CategoryManager: React.FC = () => {
       title: "Tên danh mục",
       dataIndex: "name",
       key: "name",
-      sorter: (a, b) => a.name.localeCompare(b.name),
+      sorter: (a: Category, b: Category) => a.name.localeCompare(b.name),
       sortDirections: ["ascend", "descend"],
     },
     {

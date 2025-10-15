@@ -28,6 +28,13 @@
       "firstname": "Long",
       "email": "lethanhlong1224@gmail.com",
       "password": "mbmbjk12"
+    },
+    {
+      "id": 1760494246830,
+      "lastname": "Nguyễn",
+      "firstname": "Duy",
+      "email": "duy@gmail.com",
+      "password": "12345678"
     }
   ],
   "categories": [

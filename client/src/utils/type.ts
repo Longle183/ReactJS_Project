@@ -4,7 +4,6 @@ export interface Product {
   name: string;
   price: number;
   image: string;
-  // Add other fields as needed
 }
 
 export interface Discount {
@@ -12,5 +11,4 @@ export interface Discount {
   name: string;
   price: number;
   image: string;
-  // Add other fields as needed
 }

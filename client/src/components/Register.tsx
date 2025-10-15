@@ -55,14 +55,16 @@ export default function Register() {
 
     if (validate()) {
       try {
-        // 🔹 Kiểm tra email đã tồn tại chưa
-        const res = await axios.get(`http://localhost:8080/users?email=${email}`);
+        //  Kiểm tra email đã tồn tại chưa
+        const res = await axios.get(
+          `http://localhost:8080/users?email=${email}`
+        );
         if (res.data.length > 0) {
           alert("Email này đã được đăng ký. Vui lòng dùng email khác!");
           return;
         }
 
-        // 🔹 Gửi request POST để thêm user mới
+        //  Gửi request POST để thêm user mới
         await axios.post("http://localhost:8080/users", {
           id: Date.now(),
           lastname,
