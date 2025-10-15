@@ -32,7 +32,7 @@ export default function Login() {
             sessionStorage.setItem("admin", JSON.stringify(admin));
           }
           setError("");
-          navigate("/manager"); // chuyển đến trang quản trị
+          navigate("/manager");
           return;
         } else {
           setError("Mật khẩu admin không chính xác!");
@@ -40,7 +40,7 @@ export default function Login() {
         }
       }
 
-      //  Nếu không phải admin → kiểm tra user thường
+      //  Nếu không phải admin -> kiểm tra user thường
       const resUser = await axios.get(
         `http://localhost:8080/users?email=${email}`
       );
